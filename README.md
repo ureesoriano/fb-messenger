@@ -2,8 +2,8 @@
 
 ## Exercise
 - Create your app using create-react-app
-- There should be a page that displays a list of photos in the following path: /photos
-- There should be a page that displays a single photo in the following path: /photos/:id
+- There should be a page that displays a list of photos in the following path /photos
+- There should be a page that displays a single photo in the following path /photos/:id
 - When the user clicks on a photo in /photos the app should take the user to /photos/:id
 
 Notes:
