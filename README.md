@@ -1,14 +1,19 @@
-## ReactJS Fundamentals - Thinking in React
+# Recap 1
 
-The goal of this exercise is to learn how to think in React.
+## Exercise
+- Create your app using create-react-app
+- There should be a page that displays a list of photos in the following path: /photos
+- There should be a page that displays a single photo in the following path: /photos/:id
+- When the user clicks on a photo in /photos the app should take the user to /photos/:id
 
-## Requirements
-You need to be comfortable writing JavaScript (ES6: Module system, class syntax, destructuring assignment).
-You need to have `node`and `npm`installed in your computer.
+Notes:
+- To fetch photos use [http://jsonplaceholder.typicode.com/photos?_limit=30](http://jsonplaceholder.typicode.com/photos?_limit=30). Don't forget the _limit=30 parameter at the end of the query or it will be slow.
+- User react-router v4 for the routing
+- This is not a master detail page. It's more simple than the Messenger app
 
-## Getting started:
-
-`git clone git@github.com:leanjscom/fb-messenger.git && cd thinking-in-react && npm install && npm start`
+### Bonus
+- Using this endpont [http://jsonplaceholder.typicode.com/posts](http://jsonplaceholder.typicode.com/posts), create a page that displays a list of posts in the following path: /posts
+- Add a form at the top of the page to add a new post. This url [http://jsonplaceholder.typicode.com/posts](http://jsonplaceholder.typicode.com/posts) also accepts the verb "POST" to add a new post
 
 ## License
 
