@@ -1,5 +1,5 @@
 import React from 'react'
-import Enzyme, { mount, shallow } from 'enzyme'
+import Enzyme, { mount } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import { Provider } from 'react-redux'
 import { MemoryRouter as Router } from 'react-router-dom'
@@ -9,7 +9,6 @@ import configureStore from '../../../store'
 Enzyme.configure({ adapter: new Adapter() })
 
 import ConversationContainer from './ConversationContainer'
-import { Message, MessagesWrapper, Messages } from './Content/Messages'
 
 const store = configureStore()
 const api = {
@@ -35,20 +34,5 @@ describe('<ConversationContainer />', () => {
     )
 
     expect(api.fetchConversation).toHaveBeenCalled()
-  })
-})
-
-describe('<Messages />', () => {
-  it(`should send a message`, () => {
-    const receiveMessage = jest.fn()
-    const wrapper = shallow(
-      <Messages
-        store={configureStore()}
-        receiveMessage={receiveMessage}
-      />
-    )
-
-    wrapper.find('button').simulate('click')
-    expect(receiveMessage).toHaveBeenCalled()
   })
 })
