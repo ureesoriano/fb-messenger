@@ -1,6 +1,6 @@
 # ReactJS Facebook messenger
 
-The goal of this exercise is to learn how to start testing in JavaScript.
+The goal of this exercise is to learn how to test React components.
 
 ## To get started
 
@@ -19,10 +19,11 @@ If you haven't already set up your project, head here and follow the instruction
  npm i
  ```
 
+## Exercise
+
+1- Replace all the tests in src/actions for snapshot tests. You have an example in src/actions/ui.test.js
+
 ## Bonus
-
-Use [deepFreeze](https://github.com/substack/deep-freeze) in your reducers to make sure the state is not mutated
-
 
 ## Links
 

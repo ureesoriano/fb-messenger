@@ -55,7 +55,7 @@ class ConversationContent extends Component {
 
 ConversationContent.propTypes = {
   conversation: PropTypes.array,
-  username: PropTypes.string.isRequired,
+  username: PropTypes.string,
   isMessageDetailOpen: PropTypes.bool.isRequired,
 }
 

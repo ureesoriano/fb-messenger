@@ -8,7 +8,7 @@ import Avatar from '../../../Layout/Avatar'
 import Icon from '../../../Layout/Icon'
 
 const UserDetailWrapper = styled.div`
-    width: 33.3%; 
+    width: 33.3%;
     border-left: 1px solid ${colours.mediumGrey};
     > div {
     padding: 1em;
@@ -64,7 +64,7 @@ const UserDetail = ({ username, toggleModal }) => (
 
 UserDetail.propTypes = {
   toggleModal: PropTypes.func.isRequired,
-  username: PropTypes.string.isRequired,
+  username: PropTypes.string,
 }
 
 export default UserDetail

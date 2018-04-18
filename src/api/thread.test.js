@@ -1,6 +1,7 @@
 import * as api from './thread'
 
-// DON'T DO THIS
+// It's not recommended to write a unit test for this.
+// It's better to write an integration or e2e test.
 
 describe('#API thread endpoint', () => {
   it('should fetchThreads', () => {
@@ -9,7 +10,7 @@ describe('#API thread endpoint', () => {
     fetch.mockImplementation(
       (params) => Promise.resolve({
         json: () => ({
-          data,
+          data: [],
           params
         })
       })

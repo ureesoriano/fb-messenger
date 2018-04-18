@@ -9,7 +9,7 @@ import * as api from "../../../../api/message"
 import Avatar from '../../../Layout/Avatar'
 import Icon from '../../../Layout/Icon'
 
-const MessagesWrapper = styled.div`
+export const MessagesWrapper = styled.div`
   display: flex;
   flex:2;
   flex-direction: column;
@@ -40,7 +40,7 @@ const MessageBox = styled.input`
   width: 90%;
 `
 
-const MessageWrapper = styled.div`
+export const MessageWrapper = styled.div`
   padding: 0.5em;
   display: flex;
 
@@ -55,7 +55,7 @@ const MessageRead = styled.div`
   justify-content: flex-end;
 `
 
-const Message = styled.div`
+export const Message = styled.div`
     border-radius: 20px;
     padding: 0.5em 1em;
     display: inline-block;
@@ -65,7 +65,7 @@ const Message = styled.div`
 `
 
 
-class Messages extends React.Component {
+export class Messages extends React.Component {
   state = {
     newMessage: ''
   }
@@ -116,7 +116,7 @@ class Messages extends React.Component {
             value={this.state.newMessage}
             placeholder="Type your message..."
           />
-          <button onClick={this.sendMessage}>Send</button>
+          <button className="data-test" onClick={this.sendMessage}>Send</button>
         </NewMessage>
       </MessagesWrapper>
     )
@@ -125,7 +125,7 @@ class Messages extends React.Component {
 
 Messages.propTypes = {
   conversation: PropTypes.array,
-  username: PropTypes.string.isRequired,
+  username: PropTypes.string,
 }
 
 const mapDispatchToProps = ({

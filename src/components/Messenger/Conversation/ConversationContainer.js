@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 import {
   receiveConversation
@@ -14,7 +15,7 @@ class ConversationContainer extends Component {
   }
 
   fetchConversation = async (username) => {
-    const conversation = await api.fetchConversation(username)
+    const conversation = await this.props.api.fetchConversation(username)
     this.props.receiveConversation(conversation)
   }
 
@@ -26,7 +27,6 @@ class ConversationContainer extends Component {
 
   render() {
     const { match, conversation } = this.props
-
     return (
       <Conversation
         conversation={conversation}
@@ -35,6 +35,11 @@ class ConversationContainer extends Component {
     )
   }
 }
+
+ConversationContainer.defaultProps = {
+  api
+}
+
 
 ConversationContainer.propTypes = {
   match: PropTypes.object.isRequired,
@@ -50,4 +55,4 @@ const mapStateToDispatch = {
   receiveConversation
 }
 
-export default connect(mapStateToProps, mapStateToDispatch)(ConversationContainer)
+export default withRouter(connect(mapStateToProps, mapStateToDispatch)(ConversationContainer))

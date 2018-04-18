@@ -48,7 +48,7 @@ const ConversationBar = ({ username, match, conversation, dispatch }) => (
 
 ConversationBar.propTypes = {
   match: PropTypes.object.isRequired,
-  username: PropTypes.string.isRequired,
+  username: PropTypes.string,
   dispatch: PropTypes.func.isRequired,
 }
 
