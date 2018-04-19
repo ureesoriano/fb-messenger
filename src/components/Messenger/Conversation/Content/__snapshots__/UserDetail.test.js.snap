@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserDetail /> renders properly 1`] = `
+<styled.div>
+  <styled.div>
+    <div>
+      <Avatar
+        size="large"
+      />
+      <div>
+        <styled.div />
+        <styled.div>
+          Active 
+          1
+          m ago
+        </styled.div>
+      </div>
+    </div>
+    <a
+      onClick={[Function]}
+    >
+      <Icon
+        name="cog"
+      />
+    </a>
+  </styled.div>
+  <div>
+    Options
+  </div>
+  <div>
+    Facebook Profile
+  </div>
+</styled.div>
+`;

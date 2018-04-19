@@ -9,7 +9,7 @@ import * as api from "../../../../api/message"
 import Avatar from '../../../Layout/Avatar'
 import Icon from '../../../Layout/Icon'
 
-export const MessagesWrapper = styled.div`
+const MessagesWrapper = styled.div`
   display: flex;
   flex:2;
   flex-direction: column;
@@ -35,12 +35,12 @@ const NewMessage = styled.div`
     height: 60px;
 `
 
-const MessageBox = styled.input`
+export const MessageBox = styled.input`
   border-color: transparent;
   width: 90%;
 `
 
-export const MessageWrapper = styled.div`
+const MessageWrapper = styled.div`
   padding: 0.5em;
   display: flex;
 
@@ -64,17 +64,15 @@ export const Message = styled.div`
     color: ${props => props.from === 'received' ? colours.black : colours.white}
 `
 
-
 export class Messages extends React.Component {
   state = {
     newMessage: ''
   }
 
-  sendMessage = () => {
-    const { username, receiveMessage } = this.props
+  sendMessage = async () => {
+    const { username, receiveMessage, api } = this.props
     const { newMessage } = this.state
-
-    const message = api.sendMessage({
+    const message = await api.sendMessage({
       message: newMessage,
       to: username
     })
@@ -116,11 +114,15 @@ export class Messages extends React.Component {
             value={this.state.newMessage}
             placeholder="Type your message..."
           />
-          <button className="data-test" onClick={this.sendMessage}>Send</button>
+          <button onClick={this.sendMessage}>Send</button>
         </NewMessage>
       </MessagesWrapper>
     )
   }
+}
+
+Messages.defaultProps = {
+  api
 }
 
 Messages.propTypes = {
@@ -128,8 +130,12 @@ Messages.propTypes = {
   username: PropTypes.string,
 }
 
+const mapStateToProps = state => ({
+  conversation: state.conversation
+})
+
 const mapDispatchToProps = ({
   receiveMessage,
 })
 
-export default connect(null, mapDispatchToProps)(Messages)
+export default connect(mapStateToProps, mapDispatchToProps)(Messages)

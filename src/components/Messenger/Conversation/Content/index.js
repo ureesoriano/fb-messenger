@@ -40,7 +40,6 @@ class ConversationContent extends Component {
           toggleModal={this.toggleModal}
         />
         <Messages
-          conversation={conversation}
           username={username}
           toggleModal={this.toggleModal}
         />
@@ -54,7 +53,6 @@ class ConversationContent extends Component {
 }
 
 ConversationContent.propTypes = {
-  conversation: PropTypes.array,
   username: PropTypes.string,
   isMessageDetailOpen: PropTypes.bool.isRequired,
 }

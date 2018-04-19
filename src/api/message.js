@@ -16,12 +16,16 @@ export const fetchConversation = (username) => {
 }
 
 export const sendMessage = ({ message, to }) => {
-  // This fake api just returns the message with the current time and random id
-  return {
+  // This is just a fake api to execute an api call
+  return fetch('http://jsonplaceholder.typicode.com/comments', {
+    method: 'POST'
+  })
+  .then(response => response.json())
+  .then(json => ({
     from: 'you',
     to,
     message,
     time: Date.now(),
     id: Math.random().toString(36).substr(2, 10)
-  }
+  }))
 }
