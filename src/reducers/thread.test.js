@@ -1,6 +1,8 @@
 import {
   receiveThread,
+
 } from '../actions/thread'
+import thread from './thread'
 
 /*
 
@@ -12,7 +14,7 @@ Task 2, implement the expectations
 */
 
 describe('Thread reducer', () => {
-  it(``, () => {
-    
+  it(`should add a message to the thread`, () => {
+    expect(thread(null, receiveThread({ message: 'hello' }))).toMatchSnapshot()
   })
 })

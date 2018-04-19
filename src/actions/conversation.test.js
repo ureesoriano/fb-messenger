@@ -7,20 +7,12 @@ import {
 
 describe('Conversation action', () => {
   it(`should return an action of type ${RECEIVE_MESSAGE}`, () => {
-    const expected = { message:
-      {
-        message: "hi there!",
-        to: "randomuser",
-      },
-      type: RECEIVE_MESSAGE,
-    }
-
     const actual = receiveMessage({
       message: 'hi there!',
       to: 'randomuser'
     })
 
-    expect(actual).toEqual(expected)
+    expect(actual).toMatchSnapshot()
   })
 
   it(`should return an action of type ${RECEIVE_CONVERSATION}`, () => {

@@ -39,7 +39,7 @@ const LastActive = styled.div`
     color: ${colours.darkGrey};
 `
 
-const UserDetail = ({ username, toggleModal }) => (
+const UserDetail = ({ username, toggleModal, secondsAgo = Math.floor(Math.random() * 3) + 1 }) => (
   <UserDetailWrapper>
     <User>
       <div>
@@ -49,7 +49,7 @@ const UserDetail = ({ username, toggleModal }) => (
             { username }
           </UserName>
           <LastActive>
-            Active {Math.floor(Math.random() * 3) + 1}m ago
+            Active {secondsAgo}m ago
           </LastActive>
         </div>
       </div>

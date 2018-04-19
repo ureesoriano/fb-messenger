@@ -1,7 +1,7 @@
 import React from 'react'
 
 describe('<ConversationContainer />', () => {
-  it(`should fetch messages`, () => {
+  it(`should send a message`, () => {
 
   })
 })
