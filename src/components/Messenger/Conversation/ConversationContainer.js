@@ -40,7 +40,6 @@ ConversationContainer.defaultProps = {
   api
 }
 
-
 ConversationContainer.propTypes = {
   match: PropTypes.object.isRequired,
   conversation: PropTypes.array.isRequired,
