@@ -149,16 +149,16 @@ Messages.defaultProps = {
 // {
 //   options: (props) => ({
 //     refetchQueries: // TODO you need to add something here,
-//     update: (proxy, { data: { sendMessage } }) => {
+//     update: (store, { data: { sendMessage } }) => {
 //       const query = { query: THREADS_QUERY }
 //
 //       // Read the data from our cache for this query.
-//       const data = proxy.readQuery(query)
+//       const data = store.readQuery(query)
 //
-//       const threads = null // TODO you need to update a thread
+//       TODO you need to update a thread
 //
 //       // Write our data back to the cache.
-//       proxy.writeQuery({ ...query, data: { threads } })
+//       store.writeQuery({ ...query, data })
 //     }
 //   }),
 //   name: 'sendMessage',
