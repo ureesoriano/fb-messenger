@@ -6,7 +6,7 @@ import { withRouter } from 'react-router'
 import ConversationBar from './ConversationBar'
 import ConversationContent from './Content'
 
-const Conversation = ({ data, match }) => {
+const Conversation = ({ match }) => {
   const { username } = match.params
 
   return ([
@@ -23,7 +23,6 @@ const Conversation = ({ data, match }) => {
 }
 
 Conversation.propTypes = {
-  data: PropTypes.array,
   match: PropTypes.object.isRequired,
 }
 
