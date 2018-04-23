@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { withApollo } from 'react-apollo'
-import gql from 'graphql-tag'
+// import gql from 'graphql-tag'
 
 import Input from '../../../App/components/Form/Input'
 import { logIn } from '../../api/auth'
@@ -29,7 +29,7 @@ class Login extends Component {
 
     const { status } = await logIn({ password, email })
 
-    if (status == 200) {
+    if (status === 200) {
       this.setState({ redirectToReferrer: true })
     }
   }
