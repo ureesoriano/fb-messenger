@@ -142,6 +142,11 @@ Messages.defaultProps = {
   }
 }
 
+/*
+  For part 2 question 3 you need to add some variables to your query:
+  https://www.apollographql.com/docs/react/api/react-apollo.html#graphql
+*/
+
 // use the following function to send a message
 // const sendMessage = graphql(gql`
 //     TODO add a mutation here
