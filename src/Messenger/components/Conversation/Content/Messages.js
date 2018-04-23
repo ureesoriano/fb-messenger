@@ -152,22 +152,23 @@ const sendMessage = graphql(gql`
     refetchQueries: [{
       query: MESSAGES_QUERY, variables: { username: props.username }
     }],
-    update: (proxy, { data: { sendMessage } }) => {
+    update: (store, { data: { sendMessage } }) => {
       const query = { query: THREADS_QUERY }
 
       // Read the data from our cache for this query.
-      const data = proxy.readQuery(query)
+      const data = store.readQuery(query)
 
-      //data.threads.edges = data.threads.edges.filter(({ node, cursor }) => node.id !== id)
-      const threads = data.threads.map(thread => {
-        if (thread.username === sendMessage.to) {
-          thread.lastMessage.message = sendMessage.message
+      // Mutate the cached data
+      data.threadsConnection.edges.map(({ node }) => {
+        if (node.username === sendMessage.to) {
+          node.lastMessage = {
+            ...node.lastMessage, ...sendMessage
+          }
         }
-        return thread
       })
 
       // Write our data back to the cache.
-      proxy.writeQuery({ ...query, data: { threads } })
+      store.writeQuery({ ...query, data })
     }
   }),
   name: 'sendMessage',
