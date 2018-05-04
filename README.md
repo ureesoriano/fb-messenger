@@ -36,6 +36,9 @@ If you haven't already set up your project, head here and follow the instruction
 * How many threads in the system?
 * How many types do we have in the system?
 
+#### SOLUTION
+http://localhost:3000/graphiql?query=query%20Threads%20%7B%0A%20%20threads%20%7B%0A%20%20%20%20username%0A%20%20%7D%0A%7D%0A%0Aquery%20aComversation(%24username%3A%20String!)%20%7B%0A%20%20conversationConnection(username%3A%24username)%20%7B%0A%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20from%0A%20%20%20%20%20%20%20%20message%0A%20%20%20%20%20%20%20%20time%0A%20%20%20%20%20%20%7D%20%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A%0A%0Amutation%20sendMessage(%24input%3A%20SendMessageInput!)%20%7B%0A%20%20sendMessage(input%3A%20%24input)%20%7B%0A%20%20%20%20id%0A%20%20%20%20from%0A%20%20%20%20to%0A%20%20%20%20message%0A%20%20%7D%0A%7D%0A%0Aquery%20allThreads%20%7B%0A%20%20threadsConnection%20%7B%0A%20%20%20%20pageInfo%20%7B%0A%20%20%20%20%20%20totalCount%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A%0Aquery%20allTypes%20%7B%0A%20%20__schema%20%7B%0A%20%20%20%20types%20%7B%0A%20%20%20%20%20%20name%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A%0A&operationName=allTypes&variables=%7B%0A%20%20%22username%22%3A%20%22crazypeacock512%22%2C%0A%20%20%22input%22%20%3A%20%7B%0A%20%20%20%20%22from%22%3A%20%22Horacio%22%2C%0A%20%20%20%20%22to%22%3A%20%22Richard%22%2C%0A%20%20%20%20%22message%22%3A%20%22Hello%20Richard!%20I%27m%20hungry!!%22%0A%20%20%7D%0A%7D
+
 ### Part 2
 
 1. Fetch the threads using the threads query
