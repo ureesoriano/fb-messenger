@@ -16,10 +16,10 @@ export default (component, { sheet, response, graphqlClient, status = 200 }) => 
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="/static/css/index.css" media="all" rel="stylesheet" />
-        ${sheet.getStyleTags()}
+        ${ '<!--we need to add the styles from styled-components here... -->'}
         ${graphqlClient ? `
           <script>
-            window.__APOLLO_STATE__ = ${JSON.stringify(graphqlClient.extract()).replace(/</g, '\\u003c')}
+
           </script>
         `:``}
         <link rel="manifest" href="/manifest.json">
@@ -27,8 +27,8 @@ export default (component, { sheet, response, graphqlClient, status = 200 }) => 
         <title>Clone Messenger</title>
       </head>
       <body>
-        <div id="root">${bodyHTML}</div>
-        <script type="application/javascript" src="${bundleJsUrl}"></script>
+        <div id="root">${'hello SSR'}</div>
+        <script type="application/javascript" src=""></script>
       </body>
   </html>
   `

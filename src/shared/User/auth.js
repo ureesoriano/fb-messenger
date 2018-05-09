@@ -1,9 +1,9 @@
 import Cookies from 'js-cookie'
 
 export const getSession = () => {
-  const jwt = Cookies.get('__session')
   let session = null
   try {
+    const jwt = Cookies.get('__session')
     if (jwt) {
       const base64Url = jwt.split('.')[1]
       const base64 = base64Url.replace('-', '+').replace('_', '/')

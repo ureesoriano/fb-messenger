@@ -21,12 +21,11 @@ If you haven't already set up your project, head here and follow the instruction
 
 ## Exercise
 
-
 ### Part 1
 
-```sh
- npm start
- ```
+### Part 2
+
+### Part 3
 
 * React
   * src/server/render.js bodyHTML = renderToString
@@ -42,7 +41,6 @@ If you haven't already set up your project, head here and follow the instruction
 
 * GraphQL
   * src/server/app.js getDataFromTree
-  * src/server/app.js add fetch to link: createHttpLink({ uri: `${API_BASE_URL}/graphql` }),
   * src/server/render.js graphqlClient ? window.__APOLLO_STATE
   * src/client/index cache: new InMemoryCache().restore(window.__APOLLO_STATE__),
 

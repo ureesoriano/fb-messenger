@@ -32,25 +32,25 @@ const reactApp = () => async (req, response) => {
   const setStatus = (newStatus) => {
     status = newStatus
   }
-  const initialState = { session: req.user }
-  const store = configureStore(initialState)
   const sheet = new ServerStyleSheet()
-  const graphqlClient = new ApolloClient({
-    link: createHttpLink({ uri: `${API_BASE_URL}/graphql`, fetch }),
-    cache: new InMemoryCache()
-  })
 
   try {
+    const reduxInitialState = { session: req.user }
+    const store = configureStore()
+    const graphqlClient = new ApolloClient({
+      // notice we are adding fetch to createHttpLink
+      link: createHttpLink({ uri: `${API_BASE_URL}/graphql`, fetch }),
+      cache: new InMemoryCache()
+    })
+
     const App = (
-      <StyleSheetManager sheet={sheet.instance}>
-        <Context setStatus={setStatus}>
-          <Router context={{}} location={req.url}>
-            <Root store={store} graphqlClient={graphqlClient} />
-          </Router>
-        </Context>
-      </StyleSheetManager>
+      <Context setStatus={setStatus}>
+        <Router context={{}} location={req.url}>
+          <Root store={store} graphqlClient={graphqlClient} />
+        </Router>
+      </Context>
     )
-    await getDataFromTree(App)
+
     render(App, { sheet, response, graphqlClient })
   } catch (error) {
     render(<ErrorPage error={error} />, { sheet, response, status: 500 })
