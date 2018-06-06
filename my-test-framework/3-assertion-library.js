@@ -5,10 +5,12 @@ const substract = (a, b) => a - b
 let result, expected
 
 // Task: test this using the toEqual function below
-result = sum(2,1)
+result = expect(sum(2,1)).toEqual(3);
 
 // Task: test this using the toBe function below
-result = substract(2,1)
+result = expect(substract(2,1)).toBe(1);
+
+console.log('GREAT SUCCESS!');
 
 function expect(actual) {
   function toEqual(expected) {
@@ -28,3 +30,4 @@ function expect(actual) {
     toBe,
   }
 }
+
