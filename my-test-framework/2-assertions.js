@@ -7,27 +7,25 @@ Tasks:
 */
 
 function toEqual(actual, expected) {
-
+  return actual == expected;
 }
 
 function toBe(actual, expected) {
-
+  return actual === expected;
 }
 
 const sum = (a, b) => a + b
 
 const substract = (a, b) => a - b
 
-let actual, expected
-
-actual = sum(1,2)
-expected = 3
-if (actual !== expected) {
+if (! toBe(sum(1, 2), 3)) {
   throw new Error(`Actual value was ${actual}, but ${expected} was expected`)
+} else {
+  console.log('OK');
 }
 
-actual = substract(2,1)
-expected = '1'
-if (actual != expected) {
+if (! toEqual(substract(2, 1), 1)) {
   throw new Error(`Actual value was ${actual}, but ${expected} was expected`)
+} else {
+  console.log('OK');
 }
